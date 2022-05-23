@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+    <title>The Mathist - Write Math Notes, Solve Problems, Share Ideas | Web App</title>
+    <meta name="description" content="View latest updates from your friends. Organize your math notes and manage your accounts. Write mathematical notes.">
+    <!-- Styles imports -->
+    <link href='https://fonts.googleapis.com/css?family=Playball|Open+Sans:600italic,400,700,600&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <%= stylesheet_link_tag 'client/app', media: 'all'%>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  </head>
+  <body class="relative">
+    <!-- Preloader -->
+    <div id="preloader" class="fixed light gray">
+      <h2 style="color: gray" class="invisible text-centered">The Mathist</h2>
+    </div>
+    <!-- Header -->
+    <div id="header" class="shadowed bordered light purple btn-bar">
+      <div class="cf btn-bar">
+        <div id="home-btn" style="margin-right: 2em;" class="purple large left cursive btn" for-page="editor">Home</div>
+        <div id="login-btn" style="margin-right: 2em;" class="dark purple large left tooltip btn" for-page="guest" title="Save to Google Drive"><i class="fa fa-cloud-download"></i> Save</div>
+        <div id="print-btn" class="dark purple transparent narrow large left cursive tooltip btn" title="Print" for-page="editor guest" action='{"type": "print"}'><i class="fa fa-print "></i></div>
+        <div id="undo-btn" class="dark purple transparent narrow large left cursive tooltip btn" title="Undo" for-page="editor guest" action='{"type": "undo_tap"}'><i class="fa fa-mail-reply"></i></div>
+        <div id="redo-btn" class="dark purple transparent narrow large left cursive tooltip btn" title="Redo" for-page="editor guest" action='{"type": "redo_tap"}'><i class="fa fa-mail-forward"></i></div>
+        <div id="copy-btn" class="dark purple transparent narrow large left cursive tooltip btn" title="Copy" for-page="editor guest" action='{"type": "copy"}'><i class="fa fa-files-o"></i></div>
+        <div id="paste-btn" class="dark purple transparent narrow large left cursive tooltip btn" title="Paste" for-page="editor guest" action='{"type": "paste"}'><i class="fa fa-clipboard "></i></div>
+        <div id="compute-btn" class="dark purple transparent narrow large left cursive tooltip btn" title="Compute" for-page="editor guest" action='{"type": "compute_tap"}'><i class="fa fa-lightbulb-o "></i></div>
+        <div id="geogebra-btn" class="dark purple transparent narrow large left cursive tooltip btn" title="Geogebra" for-page="editor guest" action='{"type": "geogebra_tap"}'>
+          <div class="centered contained non-repeated img"></div>
+        </div>
+        <div id="desmos-btn" class="dark purple transparent narrow large left cursive tooltip btn" title="Desmos Calculator" for-page="editor guest" action='{"type": "desmos_tap"}'>
+          <div class="centered contained non-repeated img"></div>
+        </div>
+        <div id="insert-image-btn" class="dark purple transparent narrow large left cursive tooltip btn" title="Insert Image" for-page="editor guest" action='{"type": "insert_image_tap"}'><i class="fa fa-picture-o "></i></div>
+        <div id="latex-btn" class="dark purple transparent narrow large left cursive tooltip btn" title="Export LaTeX" for-page="editor guest" action='{"type": "latex_tap"}'>
+          <div class="centered contained non-repeated img"></div>
+        </div>
+        <div class="purple large left cursive toggle btn" tab="notes" for-page="home"><i class="fa fa-book"></i> Notes</div>
+        <div class="purple large left cursive toggle btn" tab="feed" for-page="home">Feed <i class="fa fa-bell-o"></i></div>
+        <div id="show-settings-dialog" class="right purple large tooltip btn" title="Settings"><i class="fa fa-cog"></i></div>
+        <div id="show-feedback-dialog" class="right purple large tooltip btn" title="Send Feedback"><i class="fa fa-bullhorn"></i></div>
+        <div id="show-help-dialog" class="right purple large tooltip btn" title="Help"><i class="fa fa-question"></i></div>
+      </div>
+      <div id="home-toolbar" class="cf light gray btn-bar" for-page="home" for-tab="notes">
+        <div id="new-note" class="left inline light italic gray btn"><i class="fa fa-pencil"></i> New Note</div>
+        <input id="search" class="rounded right" placeholder="Type to filter..."/>
+      </div>
+    </div>
+    <!-- Help Dialog -->
+    <div id="help-dialog" class="dialog not-printable">
+      <div class="screen"></div>
+      <div class="bordered shadowed rounded padded text-centered light gray content" style="max-width: 32rem;">
+        <div class="absolute light gray close btn">&times;</div>
+        <h2>Help</h2>
+        <div id="help-tabs" style="max-height:20em; overflow-y:auto;">
+          <div id="help-titles" class="btn-list">
+            <div id="account-help" tab="help-account" class="light gray italic rounded bordered shadowed btn">Account</div>
+            <div id="organizing-notes-help" tab="help-organizing-notes" class="light gray italic rounded bordered shadowed btn">Organizing Notes</div>
+            <div id="writing-notes-help" tab="help-writing-notes" class="light gray italic rounded bordered shadowed btn">Writing Notes</div>
+            <div id="feed-help" tab="help-feed" class="light gray italic rounded bordered shadowed btn">Feed</div>
+            <div id="settings-help" tab="help-settings" class="light gray italic rounded bordered shadowed btn">Settings</div>
+            <div id="about-help" tab="help-about" class="light gray italic rounded bordered shadowed btn">About</div>
+          </div>
+          <div id="help-account" class="invisible">
+            <h3>What permissions are required by the app?</h3>
+            <p>Email is required for direct support, feedback and friendly communication. Basic friends information is used for notes sharing and unique social expirience.</p>
+            <h3>How to log out?</h3>
+            <p>Choose the Settings option from the menu on the top and click on the Log out option in a window that will appear.</p>
+            <h3>How to delete my account?</h3>
+            <p>If you do not want to have The Mathist account anymore, choose Settings option from the menu on the top and in a pop-up window, choose delete account.</p>
+            <div class="light gray italic rounded bordered shadowed inline btn" tab="help-titles">Back</div>
+          </div>
+          <div id="help-organizing-notes" class="invisible">
+            <h3>How to create a new note?</h3>
+            <p>When in the Notes section, click on the New Note button, and the note editor will open.</p>
+            <h3>How to delete a note?</h3>
+            <p>In the Notes section press the icon under the note’s title to delete the note.</p>
+            <h3>How to save a note?</h3>
+            <p>The notes are automatically saved every few seconds so there’s no need for you to manually save them or worry if they will be lost if you don’t save them and accidentally leave the app or lose the internet connection.</p>
+            <div class="light gray italic rounded bordered shadowed inline btn" tab="help-titles">Back</div>
+          </div>
+          <div id="help-writing-notes" class="invisible">
+            <h3>Where to find more formulas?</h3>
+            <p>For writing integrals, summations, multiplications etc, start typing the name of what you need inside your formula and then press one of the formulas from the drop down menu that will appear.</p>
+            <h3>Where to find Greek symbols?</h3>
+            <p>Just start typing the name of the symbol that you need and then press one of the symbols from the drop down menu that will appear. If you can't remember the name, open the virtual keyboard, and then in the bottom left of the keyboard press the gear icon. There you can select the Greek virtual keyboard.</p>
+            <h3>How to open the virtual keyboard?</h3>
+            <p>Click on the button in the bottom right corner of the note.</p>
+            <h3>How to use the Wolfram Alpha feature?</h3>
+            <p>
+              Wolfram Alpha feature enables you to solve the equations, find approximate values of expressions, plot graphs etc.</br>
+              Wolfram | Alpha support is comming soon to the new editor. Thanks for your patience.
+            </p>
+            <div class="light gray italic rounded bordered shadowed inline btn" tab="help-titles">Back</div>
+          </div>
+          <div id="help-feed" class="invisible">
+            <h3>What comes up here?</h3>
+            <p>Your notifications appear here. You can receive two types of notifications: when your friend creates The Mathist account and when there’s an important update we want to inform you about.</p>
+            <div class="light gray italic rounded bordered shadowed inline btn" tab="help-titles">Back</div>
+          </div>
+          <div id="help-settings" class="invisible">
+            <h3>How to change the font size?</h3>
+            <p>Click on the Settings option from the menu on the top and choose between three offered font sizes. It will apply both to the font size in the note and to the font size on other pages.</p>
+            <div class="light gray italic rounded bordered shadowed inline btn" tab="help-titles">Back</div>
+          </div>
+          <div id="help-about" class="invisible">
+            <p>The Mathist is a touch optimized web app for writing mathematical notes. It can be used on any device.</p>
+            <p>
+              For more information, visit our <a href="http://themathist.wordpress.com/">blog</a> and find us on social networks:
+            <a href="https://www.facebook.com/themathist">
+              <div class="non-repeated contained v-centered inline img social btn" style="background-image: url(<%= image_path 'client/f.png' %>)"></div>
+            </a>
+            <a href="https://plus.google.com/+Themathist">
+              <div class="non-repeated contained v-centered inline img social btn" style="background-image: url(<%= image_path 'client/g.png' %>)"></div>
+            </a>
+            <a href="https://twitter.com/TheMathist">
+              <div class="non-repeated contained v-centered inline img social btn" style="background-image: url(<%= image_path 'client/t.png' %>)"></div>
+            </a>
+            </p>
+            <div class="light gray italic rounded bordered shadowed inline btn" tab="help-titles">Back</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Settings Dialog -->
+    <div id="settings-dialog" class="dialog">
+      <div class="screen"></div>
+      <div class="bordered shadowed rounded padded text-centered light gray content">
+        <div class="absolute light gray close btn">&times;</div>
+        <h2>Quick Settings</h2>
+        <div id="font-size">
+          <div>Font Size</div>
+          <span size="16" class="small inline bordered rounded shadowed light gray btn">A</span>
+          <span size="20" class="bordered rounded shadowed inline light gray btn">A</span>
+          <span size="24" class="bordered rounded large inline shadowed light gray btn">A</span>
+        </div>
+        <div for-page="home, editor">
+          <div>Teacher Tools:</div>
+          <span id="indicate-wa" class="small inline bordered rounded shadowed light gray toggle btn">Indicate Wolfram|Alpha Usage</span>
+        </div>
+        <div for-page="home, editor">
+          <div>Account:</div>
+          <span class="log-out small inline bordered rounded shadowed light gray btn">Log Out</span>
+          <span id="delete-account" class="small inline rounded bordered shadowed light gray btn">Delete Account</span>
+        </div>
+      </div>
+    </div>
+    <!-- Session Dialog -->
+    <div id="choose-account-dialog" class="dialog">
+      <div class="screen"></div>
+      <div class="bordered rounded shadowed padded text-centered light gray content">
+        <h2>Welcome</h2>
+        <p class="small">Please log in and start writing awesome notes:</p>
+        <div id="accounts" class="btn-list">
+          <div id="google-signin-btn" class="bordered rounded shadowed text-centered light gray cf btn" style="padding: 0.5em;">
+            <span class="left centered non-repeated contained v-centered img inline social btn" style="background-image: url(<%= image_path 'client/g.png' %>)"></span>
+            <span id="google-user-name" class="v-centered inline">Log in with Google</span>
+          </div>
+          <div id="guest-signin-btn" class="bordered rounded shadowed text-centered light gray cf btn" style="padding: 0.5em;">
+            <span class="left v-centered inline user icon btn"></span>
+            <span class="v-centered inline">Guest Access</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Delete account dialog -->
+    <div id="delete-account-dialog" class="small dialog">
+      <div class="screen"></div>
+      <div class="bordered rounded shadowed padded text-centered light gray content">
+        <div class="absolute light gray close btn">&times;</div>
+        <h2>Attention:</h2>
+        <p class="small"><em>Warning: </em> all data associated with your account will be permatently deleted!</p>
+        <p>
+          <span id="confirm-delete-account" class="light gray bordered rounded shadowed text-centered inline small btn">Delete</span>
+          <span id="cancel-delete-account" class="light green bordered rounded shadowed text-centered inline italic small btn">Cancel Operation</span>
+        </p>
+      </div>
+    </div>
+    <!--Confirm file delete dialog-->
+    <div id="confirm-file-delete-dialog" class="dialog">
+      <div class="screen"></div>
+      <div class="bordered rounded shadowed padded text-centered light gray content">
+        <div class="absolute light gray close btn">&times;</div>
+        <h2>Are you sure?</h2>
+        <p>
+          <span id="confirm-file-delete" class="bordered rounded shadowed inline light gray btn">Delete</span>
+          <span id="cancel-file-delete" class="bordered rounded shadowed inline light gray btn">Cancel</span>
+        </p>
+      </div>
+    </div>
+    <!-- Feedback dialog -->
+    <div id="feedback-dialog" class="dialog">
+      <div class="screen"></div>
+      <div class="bordered rounded shadowed padded text-centered light gray content">
+        <div class="absolute light gray close btn">&times;</div>
+        <h2>Your Feedback</h2>
+        <p class="small">Many users helped us improve <strong class="inline">The Mathist</strong> by letting us know what they like and don't like. Your message will be carefully read and considered. <strong class="inline">Thank you!</strong></p>
+        <p><textarea rows="5" id="feedback" class="rounded"></textarea></p>
+        <div id="send-feedback" class="bordered rounded shadowed italic yellow btn">Send Message <i class="fa fa-send"></i></div>
+      </div>
+    </div>
+    <!-- Promo dialog -->
+    <div id="promo-dialog" class="dialog">
+      <div class="screen"></div>
+      <div class="bordered rounded shadowed padded text-centered light gray content">
+        <div class="absolute light gray close btn">&times;</div>
+        <h2>The Mathist 2.0</h2>
+        <div class="text-left">
+          <ul>
+            <li>Math Q&A Forum</li>
+            <li>Achievements</li>
+            <li>Conversations</li>
+            <li>Notes</li>
+            <li>Analytics</li>
+            <li>Much more!</li>
+          </ul>
+        </div>
+        <div class="italic yellow bordered shadowed rounded inline padded btn" action='{"type": "schedule_demo_tap"}'>
+          <span>Schedule a Free Demo</span>
+        </div>
+      </div>
+    </div>
+    <!-- LaTeX dialog -->
+    <div id="latex-dialog" class="dialog">
+      <div class="screen"></div>
+      <div class="bordered rounded shadowed padded text-centered light gray content">
+        <div class="absolute light gray close btn">&times;</div>
+        <h2>Copy LaTeX</h2>
+        <p><textarea rows="5" class="rounded"></textarea></p>
+      </div>
+    </div>
+    <!-- Page Content -->
+    <div id="main-container">
+      <!-- Home page -->
+      <div id="home-container" for-page="home">
+        <article id="home-tabs">
+          <!-- Updates -->
+          <section id="feed" class="invisible">
+            <div>
+              <div id="update-template" class="media invisible">
+                <a class="bordered shadowed rounded left contained non-repeated img" style="background-image: url('{{img}}')"></a>
+                <div class="shadowed bordered rounded light gray body">
+                  <h3 class="text-left">{{title}}<small class="right">{{date}}</small></h3>
+                  <p>{{content}}</p>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!-- Notes -->
+          <section id="notes" class="invisible">
+            <div class="thumbs">
+              <div id="file-template" class="shadowed bordered rounded light gray {{type}} btn invisible" file-info='{{file_info}}' title="{{title}}">
+                <table>
+                  <tr>
+                    <td>
+                      <div class="left contained non-repeated img"></div>
+                    </td>
+                    <td>
+                      <h3 class="text-left">{{title}}</h3>
+                    </td>
+                  </tr>
+                </table>
+                <div class="absolute delete-note icon btn" file-info="{{file_info}}"></div>
+              </div>
+            </div>
+            <div id="promo-container" class="padded text-centered">
+              <h2 style="margin-bottom: 0.3em;">The Mathist 2.0 is Here!</h2>
+              <div class="italic yellow bordered shadowed rounded inline padded btn" action='{"type": "promo_tap"}'>
+                <span>Click to Here to See What's New</span>
+              </div>
+            </div>
+          </section>
+        </article>
+      </div>
+      <!-- Editor -->
+      <div id="compute-wait-dialog" class="dialog">
+        <div class="screen"></div>
+        <div class="bordered rounded shadowed padded text-centered light gray content">
+          <h2>Computing...</h2>
+          <p class="small">Please wait while your results are being computed</p>
+        </div>
+      </div>
+      <div id="choose-results-dialog" class="dialog">
+        <div class="screen"></div>
+        <div class="bordered rounded shadowed padded text-centered light gray content">
+          <div class="absolute light gray close btn">&times;</div>
+          <h2>Your Results:</h2>
+          <div class="btn-list">
+            <div id="computation-result-template" class="bordered shadowed light gray cf btn" style="padding: 0.5em;">
+              <span class="v-centered inline">{{title}}</span>
+              <span class="invisible">{{data}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="geogebra-dialog" class="dialog">
+        <div class="screen"></div>
+        <div class="bordered rounded shadowed padded text-centered light gray content">
+          <div class="absolute light gray close btn">&times;</div>
+          <div class="btn-list">
+            <h2>Geogebra</h2>
+            <section>
+              <p>Search for Geogebra materials.</p>
+            </section>
+            <section id="geogebra-search-tools">
+              <div><input id="geogebra-query" class="rounded block"></div>
+              <div class="bordered rounded light gray btn" action='{"type": "search_geogebra"}'>Search</div>
+            </section>
+            <div id="geogebra-preloader" class="invisible">
+              <div class="preloader icon"></div>
+            </div>
+            <section id="geogebra-result" class="invisible">
+              <div class="bordered rounded shadowed light gray non-padded btn">
+                <div id="geogebra-result-image" class="centered covered non-repeated img" style="height: 200px;"></div>
+                <div id="geogebra-result-title" class="v-centered inline small padded"></div>
+              </div>
+            </section>
+            <section id="geogebra-paging" class="invisible">
+              <div><div class="bordered rounded shadowed light gray btn" action='{"type": "previous_geogebra_result"}'>Previous</div></div>
+              <div><div class="bordered rounded shadowed light gray btn" action='{"type": "next_geogebra_result"}'>Next</div></div>
+            </section>
+          </div>
+        </div>
+      </div>
+      <div id="editor-tutorial-dialog" class="dialog">
+        <div class="screen"></div>
+        <div class="bordered rounded shadowed padded text-centered light gray content" style="max-width: 26rem">
+          <div class="absolute light gray close btn">&times;</div>
+          <h2>Welcome Tutorial</h2>
+          <div>
+            <div id="editor-tutorial-tab-1">
+              <p><b>Autocomplete</b> let's you find any mathematical formula or Greek letter.</p>
+              <p class="bordered shadowed"><img class="rounded block" src="<%= image_path 'client/editor-tutorial/autocomplete.gif' %>"></p>
+              <div class="light gray italic rounded bordered shadowed btn" tab="editor-tutorial-tab-2">Next Step</div>
+            </div>
+            <div id="editor-tutorial-tab-2" class="invisible">
+              <p>To <b>select</b> any text or formula just drag your mouse across the screen and adjust the handles.</p>
+              <p class="bordered shadowed"><img class="rounded block" src="<%= image_path 'client/editor-tutorial/selecting.gif' %>"></p>
+              <div class="light gray italic rounded bordered shadowed btn" tab="editor-tutorial-tab-3">Next Step</div>
+            </div>
+            <div id="editor-tutorial-tab-3" class="invisible">
+              <p>You can <b>copy & paste</b> any text or formula too.</p>
+              <p class="bordered shadowed"><img class="rounded block" src="<%= image_path 'client/editor-tutorial/copy-paste.gif' %>"></p>
+              <div class="light gray italic rounded bordered shadowed btn" tab="editor-tutorial-tab-4">Next Step</div>
+            </div>
+            <div id="editor-tutorial-tab-4" class="invisible">
+              <p>Use <b>Desmos Calculator</b> inside your note.</p>
+              <p class="bordered shadowed rounded"><img class="rounded block" src="<%= image_path 'client/editor-tutorial/desmos.gif' %>"></p>
+              <div class="light gray italic rounded bordered shadowed btn" tab="editor-tutorial-tab-5">Next Step</div>
+            </div>
+            <div id="editor-tutorial-tab-5" class="invisible">
+              <p>Use <b>Wolfram | Alpha</b> to compute anything.</p>
+              <p class="bordered shadowed rounded"><img class="rounded block" src="<%= image_path 'client/editor-tutorial/wolfram-alpha.gif' %>"></p>
+              <div class="light gray italic rounded bordered shadowed btn" action='{"type": "close_dialog_tap"}'>Done!</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="image-upload-dialog" class="dialog">
+        <div class="screen"></div>
+        <div class="bordered rounded shadowed padded text-centered light gray content">
+          <div id="close-image-upload-btn" class="absolute light gray close btn">&times;</div>
+          <h2>Upload Image</h2>
+          <div id="image-upload-preloader" class="invisible">
+            <div class="preloader icon"></div>
+          </div>
+          <p id="image-uploader-message" class="invisible"></p>
+          <form>
+            <label>
+              <input type="file" class="invisible">
+              <div class="bordered shadowed rounded light gray btn">Choose File</div>
+            </label>
+          </form>
+        </div>
+      </div>
+      <div id="editor-container" class="reading-mode light gray" for-page="editor, guest">
+        <div id="radial-template" class="complex-field two-storey radial">
+          <div class="field radial-t" order="1"></div>
+          <div class="field radial-tr pass-through" order="4"></div>
+          <div class="field aligner radial-c pass-through crucial" order="2"></div>
+          <div class="field radial-br" order="5"></div>
+          <div class="field radial-b" order="3"></div>
+        </div>
+        <div id="note" class="rounded bordered shadowed padded animated">
+          <div id="note-title-container">
+            <input id="note-title" type="text" placeholder="Enter Note Title">
+          </div>
+          <div id="note-body-container">
+            <div id="focus-textarea-container">
+              <textarea id="focus-textarea"></textarea>
+            </div>
+            <div id="note-body" class="writing math-container"></div>
+          </div>
+          <div id="toggle-keyboard" class="absolute tooltip btn" title="Toggle Keyboard" for-page="editor, guest">
+            <i class="fa fa-keyboard-o"></i>
+          </div>
+        </div>
+        <!-- Keyboard -->
+        <div id="new-keyboard" class="absolute writing">
+          <table>
+            <tr>
+              <td>
+                <div class="bordered light gray key">
+                  <div class="simple-field number">1</div>
+                </div>
+              </td>
+              <td>
+                <div class="bordered light gray key">
+                  <div class="simple-field number">2</div>
+                </div>
+              </td>
+              <td>
+                <div class="bordered light gray key">
+                  <div class="simple-field number">3</div>
+                </div>
+              </td>
+              <td>
+                <div class="bordered light gray key">
+                  <div class="simple-field number">4</div>
+                </div>
+              </td>
+              <td>
+                <div class="bordered light gray key">
+                  <div class="simple-field number">5</div>
+                </div>
+              </td>
+              <td>
+                <div class="bordered light gray key">
+                  <div class="simple-field number">6</div>
+                </div>
+              </td>
+              <td>
+                <div class="bordered light gray key">
+                  <div class="simple-field number">7</div>
+                </div>
+              </td>
+              <td>
+                <div class="bordered light gray key">
+                  <div class="simple-field number">8</div>
+                </div>
+              </td>
+              <td>
+                <div class="bordered light gray key">
+                  <div class="simple-field number">9</div>
+                </div>
+              </td>
+              <td>
+                <div class="bordered light gray key">
+                  <div class="simple-field number">0</div>
+                </div>
+              </td>
+              <td>
+                <div class="bordered light gray key">
+                  <div class="simple-field number">.</div>
+                </div>
+              </td>
+            </tr>
+            <tr style="background: #FAFAFA">
+              <td class="key writing group-key template-key" expression='algebra > Plus, algebra > Plus-minus'></td>
+              <td class="key writing group-key template-key" expression='algebra > Minus, algebra > Minus-plus'></td>
+              <td class="key writing group-key template-key" expression='algebra > Dot, algebra > Times'></td>
+              <td class="key template-key writing" expression="algebra > Fraction" style="font-size: 0.7em"></td>
+              <td class="key writing group-key template-key" expression='algebra > Percent'></td>
+              <td class="key writing" action='{"type": "radial_field_tap", "data":{"radial_class": "radial-tr"}}'>
+                <div class="complex-field product radial">
+                  <div class="field radial-t"></div>
+                  <div class="field radial-tr new-field">x</div>
+                  <div class="field radial-c">a</div>
+                  <div class="field radial-br"></div>
+                  <div class="field radial-b"></div>
+                </div>
+              </td>
+              <td class="key writing" action='{"type": "radial_field_tap", "data":{"radial_class": "radial-br"}}'>
+                <div class="complex-field product radial">
+                  <div class="field radial-t"></div>
+                  <div class="field radial-tr"></div>
+                  <div class="field radial-c">a</div>
+                  <div class="field radial-br new-field">x</div>
+                  <div class="field radial-b"></div>
+                </div>
+              </td>
+              <td class="key writing" expression='algebra > Root'>√</td>
+              <td class="key group-key template-key writing"
+                expression='brackets > Round brackets, brackets > Straight brackets, brackets > Square brackets, brackets > Curly brackets'
+                ></td>
+              <td class="key writing group-key template-key"
+                expression='algebra > Equal, algebra > Not equal, algebra > Similar, algebra > Not similar, algebra > Similar or equal, algebra > Not similar or equal, algebra > Greater than, algebra > Less than, algebra > Much greater than, algebra > Much less than, algebra > Greater or equal, algebra > Less or equal, algebra > Congruent'
+                ></td>
+              <td class="key passive" id="backspace">
+                <div class="v-centered btn icon"></div>
+              </td>
+            </tr>
+          </table>
+          <table>
+            <tr>
+              <td style="max-width: 1em;">
+                <div id="letters" class="text-centered"></div>
+              </td>
+              <td id="arrows-container" class="text-centered">
+                <div style="height: 4em;">
+                  <div id="up-arrow" class="icon btn"></div>
+                  <div>
+                    <div id="left-arrow" class="left icon btn"></div>
+                    <div id="right-arrow" class="right icon btn"></div>
+                  </div>
+                  <div id="down-arrow" class="icon btn"></div>
+                </div>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div id="group" class="rounded bordered shadowed light gray text-centered fixed invisible"></div>
+        <div id="autocomplete" class="rounded bordered shadowed light gray absolute">
+          <table></table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Desmos Calculator -->
+    <script src="https://www.desmos.com/api/v0.3/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+
+    <!-- App JavaScript -->
+    <%= javascript_include_tag 'client/app' %>
+    <script> $(function () { app.init() }); </script>
+
+    <!-- Google Analytics -->
+    <% if Rails.env.production? %>
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-47272380-1', 'themathist.com');
+        ga('send', 'pageview');
+      </script>
+    <% end %>
+  </body>
+</html>

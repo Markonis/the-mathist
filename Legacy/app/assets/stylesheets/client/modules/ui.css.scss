@@ -1,0 +1,585 @@
+/* Layout */
+
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+html {
+  font-size: 20px;
+}
+
+body {
+  background-color: #F9F9F9;
+  min-width: 25rem;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: transparent;
+}
+
+div, p, textarea {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  position: relative;
+}
+
+div.padded {
+  padding: $spacing;
+}
+
+p.padded {
+  padding: 0.5*$spacing;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.fixed {
+  position: fixed;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.relative {
+  position: relative;
+}
+
+.inline {
+  display: inline-block;
+}
+
+.block {
+  display: block;
+}
+
+img.block {
+	margin-left: 0;
+	margin-right: 0;
+	width: 100%;
+}
+
+input.block {
+  @include calc(width, "100% - 2*#{$input-padding}");
+}
+
+input.padded {
+  padding: 0.3em;
+}
+
+.v-centered {
+  vertical-align: middle;
+}
+
+.v-bottom {
+  vertical-align: bottom;
+}
+
+
+/* Text Styles */
+
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: $spacing;
+}
+
+textarea, input {
+  border: 1px solid lightgray;
+  color: #555;
+  outline: none;
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+small {
+  font-size: 0.6em;
+}
+
+@font-face {
+  font-family: Math;
+  //src: font-url('MathJax_Math-Regular.otf');
+  src: font-url('Symbola.otf');
+  font-weight: 400;
+  font-style: normal;
+}
+
+.writing, .light.writing {
+  color: $writing-color;
+  font-family: Math;
+  font-size: 1em;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-centered {
+  text-align: center;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.cursive {
+  font-family: 'Playball', cursive;
+}
+
+.large {
+  font-size: 1.2em;
+}
+
+.small {
+  font-size: 0.8em;
+}
+
+/* Heading styles */
+
+h1, h2, h3 {
+  font-family: 'Playball', cursive;
+  font-weight: normal;
+  padding: 0 $spacing/2;
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+h1, h2 {
+  margin: 0.1*$spacing 0 $spacing 0;
+}
+
+h1, h3 {
+  text-align: center;
+}
+
+h1 {
+  font-size: 3em;
+}
+
+h2 {
+  font-size: 1.7em;
+}
+
+.dialog h2 {
+  margin-bottom: 0.5*$spacing;
+}
+
+h3 {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.2em;
+  ;
+  font-style: italic;
+  margin: 0.7em 0 0 0;
+  text-align: center;
+}
+
+
+/* Colours */
+
+.light {
+  color: #333;
+  h1, h2, h3 {
+    color: #111;
+  }
+}
+
+.dark {
+  color: white;
+}
+
+.purple {
+  background-color: #9575CD;
+}
+
+.yellow {
+  background-color: #FFD740;
+}
+
+.light.blue {
+  background-color: #DBDDE7;
+}
+
+.light.gray {
+  background-color: #F5F5F5;
+}
+
+.light.gray.active.btn, .purple.active.btn {
+  background-color: #FFD740;
+}
+
+.light.green {
+  background-color: #8ef58d;
+}
+
+/* Effects */
+
+.rounded {
+  border-radius: 3px;
+}
+
+.bordered.shadowed {
+  border-bottom-width: 2px;
+  border-top-color: #DDD;
+  z-index: 1;
+}
+
+.bordered {
+  border: 1px solid #CCC;
+}
+
+.animated {
+  @include transition-property(left opacity top width height);
+  @include duration(0.6s)
+}
+
+.hidden {
+  opacity: 0;
+}
+
+.invisible {
+  display: none;
+}
+
+.transparent {
+  opacity: 0.6;
+}
+
+/* Clear Fix */
+
+.cf:before, .cf:after {
+  content: " ";
+  display: table;
+}
+
+.cf:after {
+  clear: both;
+}
+
+.tooltipster-borderless-customized .tooltipster-content {
+  font-size: 0.5rem;
+  font-weight: normal;
+}
+
+/* Components */
+
+#notification {
+  opacity: 0.9;
+  right: $spacing;
+  top: $spacing;
+  .icon {
+    margin-left: 0.5em
+  }
+}
+
+#preloader {
+  height: 100%;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 5;
+}
+
+.btn {
+  cursor: pointer;
+  padding: 0.7em 1em;
+}
+
+.non-padded.btn {
+  padding: 0;
+}
+
+.narrow.btn {
+  padding: 0.1em 0.2em;
+}
+
+.icon.btn {
+  display: inline-block;
+  padding: 0;
+}
+
+.btn.icon.invisible {
+  display: none;
+}
+
+.inline.btn {
+  margin-bottom: 0.15*$spacing;
+  margin-top: 0.15*$spacing;
+}
+
+.social.btn {
+  height: $icon-size;
+  padding: 0;
+  width: $icon-size;
+}
+
+.transparent.btn:hover {
+  opacity: 0.9;
+}
+
+.btn-bar {
+  border-left: 0;
+  border-right: 0;
+  border-top: 0;
+  min-height: $icon-size;
+  line-height: 1;
+}
+
+.btn-bar > .btn {
+  line-height: $icon-size;
+  margin: 0;
+  padding: 0.4*$icon-size 0.55*$icon-size;
+  height: 2.75em;
+}
+
+.btn-bar > .narrow.btn {
+  padding: 0.4*$icon-size 0.4*$icon-size;
+}
+
+.btn-bar > .btn > * {
+  margin: -0.1em 0;
+}
+
+.btn-list > div {
+  margin-bottom: 0.3*$spacing;
+}
+
+.btn-list > div:last-child {
+  margin-bottom: 0;
+}
+
+.img {
+  background-position: center;
+}
+
+.img.contained {
+  background-size: contain;
+}
+
+.img.covered {
+  background-size: cover;
+}
+
+.img.non-repeated {
+  background-repeat: no-repeat;
+}
+
+
+.tab {
+  display: none;
+}
+
+.tab.active {
+  display: block;
+}
+
+.video-wrapper {
+  position: relative;
+	padding-bottom: 54%;
+	height: 0;
+}
+
+.video-wrapper > iframe {
+  position: absolute;
+	top: 2%;
+	left: 2%;
+	width: 96%;
+	height: 96%;
+}
+
+
+/* Media object */
+
+.media, .media> .body {
+  overflow: hidden;
+  _overflow: visible;
+  zoom: 1;
+}
+
+.media> .left {
+  margin-right: $spacing;
+}
+
+.media> .right {
+  margin-left: $spacing;
+}
+
+.media> .left> img, .media> .right> img {
+  display: block;
+}
+
+
+/* Dialog and tutorial */
+
+.dialog {
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  z-index: 3;
+}
+
+.screen {
+  background: rgba(0, 0, 0, 0.5);
+  height: 100%;
+  left: 0;
+  top: 0;
+  position: fixed;
+  width: 100%;
+}
+
+.dialog {
+  display: none;
+  text-align: center;
+}
+
+.dialog.active {
+  display: block;
+}
+
+.dialog> .content {
+  display: inline-block;
+  line-height: 1.3;
+  vertical-align: middle;
+  max-width: 25rem - 2*$spacing;
+  @include calc(width, "100% - 2*#{$spacing}");
+}
+
+.dialog> .content> h3 {
+  margin-top: 0;
+}
+
+.dialog> .content textarea {
+  max-width: 100%;
+  min-width: 100%;
+  width: 100%;
+}
+
+.dialog> .content> .close.btn {
+  border-style: solid;
+  border-width: 0 0 1px 1px;
+  border-bottom-left-radius: 4px;
+  border-color: #BBB;
+  color: #555;
+  padding: 0 0.6em;
+  right: 0;
+  top: 0;
+}
+
+.dialog> .content> div {
+  margin-bottom: $spacing;
+}
+
+.dialog> .content> div:last-child {
+  margin-bottom: 0;
+}
+
+/* Tables */
+
+section {
+  table {
+    width: 100%;
+  }
+  tr:nth-child(odd) {
+    background: rgba(0, 0, 0, 0.05);
+  }
+  td, th {
+    padding: 0.5em;
+    text-align: center;
+    font-style: italic;
+  }
+}
+
+
+/* Icons */
+.icon {
+  background-image: image-url('ui-icons.png');
+  background-size: 9*$icon-size 3*$icon-size;
+  display: inline-block;
+  height: $icon-size;
+  min-width: $icon-size;
+}
+
+.icon.preloader {
+  background-image: image-url('preloader.gif');
+  background-size: $icon-size $icon-size;
+}
+
+.icon.check {
+  @include background-pos(-4*$icon-size,
+  0);
+}
+
+.icon.cross {
+  @include background-pos(-5*$icon-size,
+  0);
+}
+
+.icon.delete-note {
+  @include background-pos(-$icon-size,
+  -$icon-size);
+}
+
+.user.icon {
+  @include background-pos(-8*$icon-size,
+  0);
+}
+
+.login.icon {
+  @include background-pos(-8*$icon-size,
+  -$icon-size);
+}
+
+#show-help-dialog> .icon {
+  @include background-pos(-7*$icon-size,
+  0);
+}
+
+#show-settings-dialog> .icon {
+  @include background-pos(-2*$icon-size,
+  -$icon-size);
+}
+
+#choose-account-dialog {
+  z-index: 6;
+}
+
+/* Responsive design */
+
+.for-wide {
+  display: none;
+}
+
+@media screen and (min-width: $breakpoint) {
+  .for-wide {
+    display: block;
+  }
+  .inline.for-wide {
+    display: inline-block;
+  }
+}
+
+@media print {
+  body {
+    background: white;
+  }
+  #header {
+    display: none !important;
+  }
+}

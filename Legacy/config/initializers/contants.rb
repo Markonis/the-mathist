@@ -1,0 +1,1 @@
+GEOGEBRA_API = 'http://www.geogebra.org/api/json.php'

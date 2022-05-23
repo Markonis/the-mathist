@@ -1,0 +1,147 @@
+@import 'normalize.min';
+@import "modules/constants";
+@import "modules/mixins";
+@import 'modules/ui';
+@import "modules/column-layout";
+@import "modules/constants";
+@import "modules/mixins";
+
+html {
+	overflow: hidden;
+}
+
+body {
+	background: #7E57C2;
+	color: white;
+}
+
+#main-container {
+	max-height: 100%;
+	overflow: auto;
+}
+
+h1 {
+	background: rgba(0, 0, 0, 0.3);
+	box-sizing: border-box;
+	color: #FFF;
+	font-size: 1.3em;
+	left:0;
+	margin: 0;
+	padding-left: 0.3em;
+	top:0;
+	width: 100%;
+}
+
+#intro {
+	background-image: image-url('intro2.jpg');
+	background-position-y: 10%;
+	background-size: cover;
+	margin-bottom: 0;
+	overflow: hidden;
+}
+
+#intro > div:first-child {
+	padding-bottom: 55%;
+	margin: 0;
+}
+
+#call-to-action {
+	bottom: 0;
+	left: 0;
+	margin: 0;
+	padding: 1.5%;
+	width: 100%;
+}
+
+#quotes {
+	background: rgba(0,0,0,0.2);
+	color: #FFF;
+	font-size: 0.8em;
+	margin-bottom: 1.5%;
+	padding: 0.3em;
+}
+
+q {
+	quotes: none;
+	font-style: italic;
+}
+
+#try-beta, #start-now {
+	font-size: 1em;
+}
+
+#try-beta {
+	margin-right: $spacing;
+}
+
+#start-now {
+	background: #FC1;
+}
+
+#separator {
+	background: rgba(0,0,0,0.2);
+	height: $spacing;
+}
+
+#details, #footer {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#details {
+	max-width: 1200px;
+	padding: 0.8em 0.4em;
+}
+
+#details > div{
+	h3{
+		color: #fe0;
+		font-size: 1em;
+		margin-bottom: 0.8*$spacing;
+		margin-top: 0.3*$spacing;
+		white-space: nowrap;
+	}
+}
+
+#social .btn {
+	margin: 0.2em;
+}
+
+#footer {
+	font-size: 0.5em;
+	max-width: 80%;
+}
+
+#details > div {
+	text-align: center;
+}
+
+
+/* Responsivness */
+
+@media screen and (min-width: $breakpoint){
+	h1{
+		font-size: 2em;
+	}
+
+	#try-beta, #start-now {
+		font-size: 1.3em;
+	}
+
+	#quotes {
+		font-size: 1.15em;
+	}
+
+	#details > div, #details h3 {
+		text-align: left;
+	}
+
+	#details > div:first-child{
+		@include column(2/3);
+	}
+
+	#details > div:last-child {
+		padding-top: 0.5 * $spacing;
+		@include column(1/3);
+	}
+}

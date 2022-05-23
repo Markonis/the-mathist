@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Provider:</strong>
+  <%=
+    if @user.provider == 0 then
+        'Google'
+    else
+        'Facebook'
+    end
+  %>
+</p>
+
+<p>
+  <strong>Mail:</strong>
+  <%= @user.mail %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @user.name %>
+</p>
+
+<p>
+  <img src="<%= @user.img %>">
+</p>
+
+<p>
+  <strong>Premium:</strong>
+  <%= @user.premium %>
+</p>
+
+<p>
+  <strong>Config:</strong>
+  <%= @user.config %>
+</p>
+
+<p>
+  <strong>Last login:</strong>
+  <%= @user.last_login %>
+</p>
+
+
+<%= link_to 'Edit', edit_admin_user_path(@user) %> |
+<%= link_to 'Back', admin_users_path %>

@@ -1,0 +1,4 @@
+First name, Email, Last login, Login count, Drive requests count
+<% @users.each do |user| %>
+<%= user.name %>, <%= user.mail %>, <%= user.last_login %>, <%= user.login_count %>, <%= user.drive_requests_count %>
+<% end %>

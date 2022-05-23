@@ -1,0 +1,17 @@
+@import 'normalize.min';
+
+table{
+    width: 100%;
+    max-width: 100%;
+    
+    td {
+        background-color: #FAFAFA;
+        border: 1px solid gray;
+        padding: 0.5em;
+        text-align: center;
+    }
+    
+    tr:nth-child(odd) > td {
+        background-color: #EEE;
+    }
+}

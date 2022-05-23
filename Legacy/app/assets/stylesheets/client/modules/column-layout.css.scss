@@ -1,0 +1,49 @@
+@import 'mixins';
+@import "constants";
+
+@mixin column($ratio) {
+    @if ($ratio < 1) {
+        margin-bottom: 0;
+    }@else {
+        margin-bottom: $spacing;
+    }
+    
+    @include calc(width, "100% * #{$ratio} - #{$spacing}");
+}
+
+section {
+	margin-bottom: $spacing;
+}
+
+section:last-child {
+	margin-bottom: 0;
+}
+
+section > div, .thumbs > div {
+	float: left;
+	margin-left: $spacing/2;
+	margin-right: $spacing/2;
+	@include column(1);
+}
+
+section > div:last-child {
+	margin-bottom: 0;
+}
+
+section:before, section:after{
+    content:"";
+    display:table;
+}
+
+/* Thumbs */
+
+.thumbs > div {
+	margin-bottom: 0.5*$spacing;
+	margin-top: 0.5*$spacing;
+}
+
+
+section:after, .clearfix:after {
+    clear:both;
+}
+

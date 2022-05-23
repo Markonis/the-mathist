@@ -1,0 +1,365 @@
+@import "constants";
+@import 'mixins';
+
+.complex-field, .simple-field , .field{
+  display: inline-block;
+  font-size: 1em;
+  line-height: 1;
+  position: relative;
+}
+
+#note-body > .complex-field:not(.word) {
+  margin-top: 0.3em;
+  margin-bottom: 0.3em;
+}
+
+.field {
+  white-space: nowrap;
+}
+
+.simple-field {
+  margin-top: 0.1em;
+}
+
+.simple-field.number {
+  font-size: 0.8em;
+}
+
+img.simple-field,
+.geogebra.simple-field {
+  margin: 0.2em;
+  vertical-align: middle;
+}
+
+.geogebra.simple-field > iframe {
+  border: 1px solid #AAA;
+}
+
+.margin-field {
+  padding-left: 0.2em;
+  padding-right: 0.2em;
+}
+
+.simple-field.margin-field {
+  font-size: 0.8em;
+}
+
+.wide.margin-field {
+  padding-left: 0.35em;
+  padding-right: 0.35em;
+}
+
+.glued-field {
+  margin-left: -0.05em;
+  margin-right: -0.05em;
+}
+
+.radial > div {
+  background: inherit;
+  display: block;
+}
+
+.radial-t, .radial-c, .radial-b {
+  text-align: center;
+}
+
+.radial > .radial-c {
+  font-size: 1em;
+}
+
+.radial-c > .simple-field, .radial-c > .complex-field {
+  margin: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.radial-tr, .radial-br {
+  position: absolute;
+}
+
+.radial-tr {
+  bottom: 100%;
+  font-size: 0.7em;
+  margin-bottom: -0.7em;
+  left: 100%;
+}
+
+.radial-br {
+  font-size: 0.6em;
+  left: 100%;
+  margin-top: -0.9em;
+  top: 100%;
+}
+
+.radial-t, .radial-b {
+  font-size: 0.6em;
+}
+
+.product > div, .summation > div, .limit > div:last-child {
+  font-size: 0.65em;
+}
+
+.product > .aligner, .summation > .aligner {
+  font-size: 1.2em;
+  vertical-align: -0.08em;
+}
+
+.product > div:last-child {
+  margin-top: -0.2em;
+}
+
+.summation > .aligner {
+  font-size: 1.3em;
+  vertical-align: -0.18em;
+}
+
+.summation > div:first-child {
+  margin-bottom: -0.15em;
+}
+
+.summation > div:last-child {
+  margin-top: -0.45em;
+}
+
+.limit > div:last-child {
+  margin-top: -0.2em;
+}
+
+.integral > .radial-tr {
+  margin-left: 0.2em;
+}
+
+.integral > .radial-c {
+  font-size: 1.7em;
+  vertical-align: -0.1em;
+}
+
+.integral > .radial-br {
+  margin-left: -0.35em;
+}
+
+/* two-storey elements fraction & radial */
+
+.two-storey {
+  white-space: nowrap;
+  text-align: center;
+}
+
+.two-storey > div:first-child,
+.two-storey > div:last-child {
+  width: 100%;
+  display: block;
+}
+
+.two-storey > .aligner {
+  width: 100%;
+  display: inline-block;
+}
+
+.two-storey > div:last-child {
+  float: left;
+}
+
+.fraction {
+  vertical-align: 0.2em;
+}
+
+.fraction > div:not(.aligner) {
+  font-size: 0.85em;
+  padding: 0 0.1em;
+  min-height: 1em;
+  min-width: 0.5em;
+}
+
+.fraction > div:first-child {
+  margin-bottom: -0.7em;
+}
+
+.fraction > div:last-child {
+  margin-top: -0.2em;
+}
+
+.fraction > .aligner {
+  border-top: 1px solid $writing-color;
+}
+
+.root {
+  padding-bottom: 0.1em;
+  padding-top: 0.15em;
+  white-space: nowrap;
+}
+
+.root > div {
+  display: inline-block;
+}
+
+.root .exp {
+  bottom: 0.6em;
+  font-size: 0.7em;
+  margin-right: -0.5em;
+  margin-bottom: 0.2em;
+  vertical-align: bottom;
+  z-index: 1;
+}
+
+.root .radix {
+  text-align: right;
+  position: relative;
+  vertical-align: top;
+}
+
+.root .inner {
+  border: 0.2em solid $writing-color;
+  border-width: 0.08em 0 0 0;
+  min-height: 1em;
+  min-width: 0.5em;
+  padding: 0 0.1em 0 0.1em;
+}
+
+.stretched {
+  transform-origin: top;
+  -ms-transform-origin: top; /* IE 9 */
+  -webkit-transform-origin: top; /* Chrome, Safari, Opera */
+}
+
+.brackets > .field {
+  min-height: 1em;
+  margin: 0em 0.3em;
+}
+
+.straight.brackets, .square.brackets {
+  margin-left: 0.15em;
+  margin-right: 0.15em;
+}
+
+.square.brackets > .field {
+  margin: 0 0.2em;
+}
+
+.brackets > .field {
+  text-align: center;
+  min-width: 0.2em;
+}
+
+.curly.brackets > .field {
+  text-align: left;
+}
+
+.brackets > .left,
+.brackets > .right {
+  position: absolute;
+  top: 0;
+}
+
+.brackets > .left {
+  left: 0;
+}
+
+.brackets > .right {
+  right: 0;
+}
+
+.straight.brackets > .left,
+.square.brackets > .left {
+  border-left: 0.09em solid $writing-color;
+  height: 100%;
+  left: 0;
+}
+
+.straight.brackets > .right,
+.square.brackets > .right {
+  border-right: 0.09em solid $writing-color;
+  height: 100%;
+  right: 0;
+}
+
+.square.brackets > .left,
+.square.brackets > .right {
+  border-bottom: 0.09em solid $writing-color;
+  border-top: 0.09em solid $writing-color;
+  width: 0.25em;
+}
+
+.angle.brackets > .field {
+  margin: 0 0.4em;
+}
+
+#note .space {
+  border: none;
+  bottom: 0;
+  height: 0.5em;
+  width: 0.35em;
+}
+
+.indicate-wa .wa {
+  color: orange;
+}
+
+.svg-placeholder svg {
+  display: none;
+}
+
+.matrix {
+  vertical-align: middle;
+}
+
+.matrix tbody {
+  display: table;
+}
+
+#autocomplete .matrix tr, .matrix tr {
+  background: none;
+  display: table-row;
+}
+
+#autocomplete .matrix td, .matrix td {
+  background: none;
+  border: 1px dashed #EEE;
+  display: table-cell;
+  font-size: 1em;
+  line-height: 1em;
+  min-width: initial;
+  padding: 0.2em;
+  text-align: center;
+}
+
+.geogebra > iframe {
+  margin: 3px;
+  margin-bottom: 1px;
+  position: relative;
+  z-index: 1;
+}
+
+.desmos {
+  border: 1px solid #DDD;
+  margin: 0.2em;
+  padding: 10px;
+}
+
+.desmos > .calculator-wrapper {
+  z-index: 1;
+}
+
+#note-body > .vector.complex-field,
+.vector.complex-field {
+  margin-top: -0.8em;
+}
+
+.vector > .horizontally-stretched {
+  font-size: 0.6em;
+  top: 0.6em;
+}
+
+.overline {
+  border-top: 0.06em solid $writing-color;
+}
+
+.underline {
+  border-bottom: 0.06em solid $writing-color;
+}
+
+@media print {
+  .matrix td {
+    border: none;
+  }
+}

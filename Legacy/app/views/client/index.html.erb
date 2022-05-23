@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+    <title>The Mathist - Write Math Notes, Solve Problems, Share Ideas | Home</title>
+    <meta name="description" content="The Mathist is a touch optimized web application for writing mathematical notes and expressions easily on every device. Solve problems, plot graphs and share ideas with your friends, classmates and professors.">
+    <!-- Styles imports -->
+    <link href='https://fonts.googleapis.com/css?family=Playball|Open+Sans:600italic,400,700,600&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.2.3/animate.min.css' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <%= stylesheet_link_tag 'client/index' %>
+  </head>
+  <body class="relative">
+    <div id="main-container">
+      <article>
+        <section id="intro" class="relative">
+          <div></div>
+          <h1 id="logo" class="absolute text-left">The Mathist</h1>
+          <div id="call-to-action" class="absolute text-right">
+            <div id="quotes" class="inline rounded">
+              <p>
+                <q>"I'm loving the web app. Super useful..."</q><br/>
+                - Pablo, 8th grade student
+              </p>
+            </div>
+            <br>
+            <div id="start-now" class="inline italic rounded light btn">Get Started Now</div>
+          </div>
+        </section>
+        <div id="separator"></div>
+        <section id="details">
+          <div>
+            <div class="video-wrapper">
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/IWD6uT3sm6k" frameborder="0" allowfullscreen></iframe>
+            </div>
+          </div>
+          <div>
+            <h3>Learn Algebra Easily</h3>
+            <p class="small">Quickly share examples with friends or teachers and find creative solutions together. <b>Wolfram|Alpha</b> integration comes in handy, too.</p>
+            <h3>Write With Pleasure</h3>
+            <p class="small">The Mathist is made for writing all mathematical expressions - <b>fractions</b>, <b>integrals</b>, <b>roots</b> and all kinds of mathematical symbols.</p>
+            <h3>Teach Cool Math</h3>
+            <p class="small">
+              Make your class <b>creative</b>, support <b>communication</b>, <b>collaboration</b> and <b>critical thinking</b>. Help students see links between the real world and mathematics.
+            </p>
+          </div>
+        </section>
+        <section id="social">
+          <div class="text-centered">
+            <a class="large inline" href="https://www.facebook.com/themathist">
+              <div class="non-repeated contained v-centered inline img social btn" style="background-image: url(<%= image_path 'client/f.png' %>)"></div>
+            </a>
+            <a class="large inline" href="https://plus.google.com/+Themathist">
+              <div class="non-repeated contained v-centered inline img social btn" style="background-image: url(<%= image_path 'client/g.png' %>)"></div>
+            </a>
+            <a class="large inline" href="https://twitter.com/TheMathist">
+              <div class="non-repeated contained v-centered inline img social btn" style="background-image: url(<%= image_path 'client/t.png' %>)"></div>
+            </a>
+          </div>
+        </section>
+        <section id="footer" class="text-centered">
+          <span class="large italic">Legal Notice:</span>
+          All the software provided by The Mathist application is the property of The Mathist team
+          and cannot be copied, distributed or examined in any way.
+          The application is provided as is, without warranty of any kind.
+        </section>
+      </article>
+    </div>
+    <%= javascript_include_tag 'client/index' %>
+    <script>
+      $(function () {
+          app.init()
+      });
+    </script>
+    <% if Rails.env.production? %>
+    <!-- Google Analytics -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-47272380-1', 'themathist.com');
+            ga('require', 'displayfeatures');
+      ga('send', 'pageview');
+    </script>
+    <% end %>
+    <a class="hidden" href="https://plus.google.com/117235396981243623131" rel="publisher">Google+</a>
+  </body>
+</html>

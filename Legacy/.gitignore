@@ -1,0 +1,7 @@
+nohup.out
+tmp/
+log/
+.bundle/
+config/database.yml
+public/_pgbackup
+public/pinegrow.json

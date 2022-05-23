@@ -1,0 +1,26 @@
+<h1>Listing feedbacks</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Content</th>
+      <th>Date</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @feedbacks.each do |feedback| %>
+      <tr>
+        <td>
+          <% if feedback.user %>
+            <%= feedback.user.name %> </br> <i><%= feedback.user.mail %></i>
+          <% else %>-<% end %>
+        </td>
+        <td><%= feedback.content %></td>
+        <td><%= feedback.created_at %></td>
+        <td><%= button_to "delete", [:admin, feedback], :method=>:delete%></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

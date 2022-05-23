@@ -1,0 +1,27 @@
+source 'https://rubygems.org'
+
+gem 'bundler'
+gem 'rails', '~>4.2'
+gem 'pg'
+gem 'rails_12factor'
+
+group :development do
+	gem 'pry'
+	gem 'byebug'
+end
+
+gem 'actionmailer'
+gem 'httpi'
+gem 'json'
+
+gem 'sass-rails'
+
+# Gems used only for assets and not required
+# in production environments by default.
+group :assets do
+  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
+  # gem 'therubyracer', :platforms => :ruby
+  gem 'uglifier'
+end
+
+ruby "2.3.0"

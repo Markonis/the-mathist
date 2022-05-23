@@ -1,0 +1,143 @@
+@import "column-layout";
+@import "constants";
+
+#home-toolbar {
+	border-top: 1px solid lightgray;
+}
+
+#search{
+	margin: 0.4em;
+	padding: 0.3em;
+}
+
+#new-note > .icon {
+	@include background-pos(0, -$icon-size);
+}
+
+#home-container {
+	padding: $spacing/2 0;
+}
+
+
+.media {
+	.left {
+		height: 4em;
+		width: 4em;
+	}
+
+	.body {
+		padding: 0.5*$spacing 0.7*$spacing;
+		h3 {
+			margin-top: 0;
+			margin-left: 0;
+		}
+	}
+}
+
+#feed{
+	h2 {
+		margin-left: $spacing;
+		margin-right: $spacing;
+	}
+
+	.media {
+		padding: 0.5*$spacing;
+
+		.content {
+		    background: rgba(255,255,255,0.5);
+		    margin: 0.2em 0;
+		    padding: 0.3em;
+		}
+	}
+
+	#invite-friends {
+		padding: 0.5*$spacing 0.5*$spacing 0 0.5*$spacing;
+	}
+
+	#show-friends-dialog > .img {
+		height: 2em;
+		margin-right: 0.5*$spacing;
+		width: 3em;
+	}
+}
+
+#notes > .thumbs > div {
+	padding: 0.3em;
+
+	h3 {
+		font-size: 1em;
+		overflow: hidden;
+		padding: 0;
+		margin: 0;
+	}
+
+	tr {
+		background: none;
+	}
+
+	td {
+		padding: 0.2em;
+	}
+
+	td:first-child {
+		width: 3em;
+	}
+
+	.img {
+		height: 3em;
+		margin-right: 0;
+		width: 3em;
+	}
+
+	.delete-note {
+		right: 0.05em;
+		bottom: 0.05em;
+	}
+}
+
+.file .left{
+	background-image: image-url('client/note.png');
+}
+
+.folder .left{
+	background-image: image-url('client/folder.png');
+}
+
+.prev-folder .left{
+	background-image: image-url('client/back.png');
+}
+
+.folder .delete-note.icon, .prev-folder .delete-note.icon {
+	display: none;
+}
+
+@media screen and (min-width: $page-width){
+	#home-container {
+		margin: auto;
+		@include calc(width, "#{$page-width} + #{$spacing}")
+	}
+}
+
+@media screen and(min-width: $breakpoint) {
+	#notes > .thumbs > div {
+		@include column(1/2);
+	}
+
+	#notes {
+		margin-bottom: 2.5em;
+	}
+}
+
+#help-dialog h3{
+	color: #5E35B1;
+	margin-bottom: 0.5em;
+}
+
+#help-dialog a{
+	color:#512DA8;
+	text-decoration: none;
+}
+
+#help-dialog .btn{
+	color:#512DA8;
+}

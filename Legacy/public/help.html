@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="The Mathist For Teachers">
+    <meta name="author" content="Marko Pavlovic">
+    <title>The Mathist - Write Math Notes, Solve Problems, Share Ideas | Home</title>
+    <meta name="description" content="The Mathist is a touch optimized web application for writing mathematical notes and expressions easily on every device. Solve problems, plot graphs and share ideas with your friends, classmates and professors.">
+    <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static-assets/css/style.css" rel="stylesheet">
+    <link href="static-assets/css/note-elements.css" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+    <nav class="navbar navbar-default" data-pgc="tm.header">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">
+            <img src="/static-assets/img/logo.png" height="100%">
+          </a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav"></ul>
+        </div>
+      </div>
+    </nav>
+    <div class="jumbotron shadow padded-v-lg" style="background-image:url('static-assets/img/help-header.jpg'); background-position: center; background-size: cover;">
+      <div class="container">
+        <div style="padding-top: 25%;">
+</div>
+      </div>
+    </div>
+    <div class="container">
+      <section>
+        <h1 class="text-center">Welcome to The Mathist Help Center</h1>
+        <div class="row">
+          <div class="col-sm-10 col-sm-offset-1">
+            <p class="text-center">Here you will find information about all the things you can do in The&nbsp;Mathist. However, if you still have questions, please let us know at <a mailto="contact@themathist.com">contact@themathist.com</a>. We will be very happy to talk with you!</p>
+            <p class="text-right"><i>- The Mathist Team</i></p>
+          </div>
+        </div>
+      </section>
+      <hr>
+      <nav>
+        <div class="row">
+          <div class="col-sm-4">
+            <h3>Getting Started</h3>
+            <ul>
+              <li>
+                <a href="#creating-notes">Creating notes</a>
+              </li>
+              <li>
+                <a href="#saving-notes">Saving notes</a>
+              </li>
+              <li>
+                <a href="#deleting-notes">Deleting notes</a>
+              </li>
+              <li>
+                <a href="#searching-notes">Searching notes</a>
+              </li>
+              <li>
+                <a href="#printing-notes">Printing notes</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-sm-4">
+            <h3>Writing Notes</h3>
+            <ul>
+              <li>
+                <a href="#moving-the-cursor-around">Moving the cursor around</a>
+              </li>
+              <li>
+                <a href="#keyboard-shortcuts">Keyboard shortcuts<br></a>
+              </li>
+              <li>
+                <a href="#finding-all-formulas">Finding all formulas</a>
+              </li>
+              <li>
+                <a href="#the-on-screen-keyboard">The on-screen keyboard<br></a>
+              </li>
+              <li>
+                <a href="#exporting-to-latex">Exporting to LaTeX<br></a>
+              </li>
+              <li>
+                <a href="#working-with-images">Working with images<br></a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-sm-4">
+            <h3>Cool Stuff</h3>
+            <ul>
+              <li>
+                <a href="#using-wolfram-alpha">Using Wolfram | Alpha</a>
+              </li>
+              <li>
+                <a href="#using-desmos-calculator">Using Desmos calculator<br></a>
+              </li>
+              <li>
+                <a href="#using-geogebra">Using Geogebra</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <hr>
+      <section>
+        <h2 class="text-center">Getting Started</h2>
+        <section>
+          <h3 id="creating-notes">Creating Notes</h3>
+          <p>When you log in, you will se a screen representing the folder structure of your Google Drive. Navigate to a folder you wish to create a note in and then in the upper left click the <b>New Note</b> button.</p>
+        </section>
+        <section>
+          <h3 id="saving-notes">Saving Notes</h3>
+          <p>When you are inside the editor, your notes are being automatically saved to your Google Drive every few seconds. There is no special action to perform in order to save your note. Ah yes, the beautiy of Google Drive!</p>
+        </section>
+        <section>
+          <h3 id="deleting-notes">Deleting Notes</h3>
+          <p>If you are in the editor, click the <b>Home</b> button in the upper left corner. Once you can see the notes in your Google Drive on the home screen, click on the little <b>trash can icon</b> next to the title of the note in order to delete it. If you are sure, confirm your choice in the confirmation dialog.</p>
+        </section>
+        <section>
+          <h3 id="searching-notes">Searching Notes</h3>
+          <p>If you are like us, you write a LOT of mathematical notes. So if you need to find a note in a folder with lots of other folders or notes in it, just start typing the title of your note in the search field in the top-right corner of the screen. To reset the search, delete what you have typed in the search box.</p>
+        </section>
+        <section>
+          <h3 id="printing-notes">Printing Notes</h3>
+          <p>When you are inside the editor, click on the Print button in the top toolbar to print your note. This feature is really usefult because you can also <b>export your notes to PDF</b> this way. Here is a screenshot showing where the print button is:</p>
+          <div class="text-center margin-v-md" data-pgc-define="tm.help-image" data-pgc-define-name="Help Image" data-pgc-edit-classes="text-center" data-pgc-edit="container[no_content]">
+            <img src="/static-assets/img/help/print.jpg" class="img-responsive shadow img-rounded inline" data-pgc-edit="image[src, width, no_content]" width="800">
+          </div>
+        </section>
+      </section>
+      <hr>
+      <section>
+        <h2 class="text-center">Writing Formulas</h2>
+        <section>
+          <h3 id="moving-the-cursor-around">Moving the Cursor Around</h3>
+          <p>In the editor you can use the <span class="label label-info">arrow keys</span> to move the cursor left-right and up and down through the note, just like in any other text editor. There is one difference - mathematical expressions that are a little more complex, like for example fractions, can have more than one place where you can put the cursor inside them.</p>
+          <p>You can also use your <span class="label label-info">home</span> and <span class="label label-info">end</span> keys to jump to the beginning and the end of the line. On Mac, the key combination for this is <span class="label label-info">command + left</span> or <span class="label label-info">Command + Right</span>.</p>
+          <p><br></p>
+        </section>
+        <section>
+          <h3 id="keyboard-shortcuts">Keyboard Shortcuts</h3>
+          <p>Here is a table showing the most important keyboard shortucts to speed up your writing.</p>
+          <div class="table-responsive">
+            <table class="table table-striped table-bordered table-hover">
+              <thead>
+                <tr>
+                  <th>Keyboard&nbsp;shortcut</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span class="label large label-info">/</span>&nbsp;-&nbsp;forward&nbsp;slash</td>
+                  <td><h4>Fractions</h4><p>
+        If there is a group of numbers or a letter before the cursor, it becomes the numerator of the fraction and the cursor is moved to the nominator of the fraction automatically.</p><p>Otherwise an empty fraction is created and the cursor is placed in the numerator.</p></td>
+                </tr>
+                <tr>
+                  <td><span class="label large label-info">^</span>&nbsp;- cap</td>
+                  <td><h4>Exponent or Superscript</h4><p>
+        If there is a group of numbers or a letter before the cursor we put an exponent on it. If there is a root or a fraction before the cursor, we first put it in brackets and then put the exponent on the brackets.</p></td>
+                </tr>
+                <tr>
+                  <td><span class="label large label-info">_</span>&nbsp;- underscore</td>
+                  <td><h4>Subscript</h4><p>
+        If there is a group of numbers or a letter before the cursor we put a subscript on it.</p></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+        <section>
+          <h3 id="finding-all-formulas">Finding All Formulas</h3>
+          <p>As you start typing in The Mathist, you will notice a list of formulas appear at your cursor. This is the <b>autocomplete</b> list, it offers quick access to all the various mathematical expressions you can write in The Mathist. Let's use an example to illustrate how it works:</p>
+          <ul>
+            <li>Let's say that you want to write root of 3.
+</li>
+            <li>Start typing "
+              <i>roo</i>" &nbsp; &nbsp;
+            </li>
+            <li>
+              <p>
+    After a second you will see a list of suggestions show up under your cursor like this:</p>
+              <div class="margin-v-md" data-pgc="tm.help-image" data-pgc-field="container">
+                <img src="static-assets/img/help/autocomplete.jpg" class="img-responsive shadow img-rounded inline" width="280" data-pgc-field="image">
+              </div>
+            </li>
+            <li>You can use the
+              <span class="label label-info">down arrow</span> to select the
+              <b>Root</b> symbol from the list, and then press
+              <span class="label label-info">enter</span>. You can also click with the mouse.
+            </li>
+            <li>After you've selected, the letters "
+              <i>roo</i>" will get replaced by the actual
+              <i>root symbol</i>, and your cursor will be placed inside the
+              <i>root expression</i>.
+            </li>
+            <li>The Mathist will always list all the expressions that match your last typed letters. We see here all the expressions that begin with the letter "O" are also listed.</li>
+          </ul>
+          <p>Here is a complete list of all mathematical expression The Mathist currently supports. Just start typing any of them, and the autocomplete will suggest them to you.</p>
+          <div class="row">
+            <div class="col-sm-3">
+              <h4>Punctuation</h4>
+              <ul>
+                <li>Space</li>
+                <li>Line break</li>
+                <li>Comma</li>
+                <li>Full stop</li>
+                <li>Question mark</li>
+                <li>Colon</li>
+                <li>Semicolon</li>
+                <li>Overline</li>
+                <li>Underline</li>
+                <li>Right arrow</li>
+              </ul>
+            </div>
+            <div class="col-sm-3">
+              <h4>Brackets</h4>
+              <ul>
+                <li>Round brackets</li>
+                <li>Straight brackets</li>
+                <li>Square brackets</li>
+                <li>Curly brackets</li>
+                <li>Angle brackets</li>
+              </ul>
+            </div>
+            <div class="col-sm-3">
+              <h4>Sets</h4>
+              <ul>
+                <li>Subset</li>
+                <li>Superset</li>
+                <li>Subset or equal</li>
+                <li>Superset or equal</li>
+                <li>Intersection</li>
+                <li>Union</li>
+                <li>Member</li>
+                <li>Not member</li>
+                <li>Empty set</li>
+              </ul>
+            </div>
+            <div class="col-sm-3">
+              <h4>Trigonometry</h4>
+              <ul>
+                <li>Sine</li>
+                <li>Arcus sine</li>
+                <li>Cosine</li>
+                <li>Arcus cosine</li>
+                <li>Tangent</li>
+                <li>Arcus tangent</li>
+                <li>Cotangent</li>
+                <li>Arcus cotangent</li>
+              </ul>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-3">
+              <h4>Algebra</h4>
+              <ul>
+                <li>Fraction</li>
+                <li>Root</li>
+                <li>Matrix</li>
+                <li>Summation</li>
+                <li>Product</li>
+                <li>Logarithm</li>
+                <li>Vector</li>
+                <li>Equal</li>
+                <li>Not equal</li>
+                <li>Similar</li>
+                <li>Not similar</li>
+                <li>Similar or equal</li>
+                <li>Not similar or equal</li>
+                <li>Congruent</li>
+                <li>Not congruent</li>
+                <li>Less than</li>
+                <li>Much less than</li>
+                <li>Greater or equal</li>
+                <li>Less or equal</li>
+                <li>Equivalent</li>
+                <li>Plus</li>
+                <li>Plus-minus</li>
+                <li>Minus</li>
+                <li>Minus-plus</li>
+                <li>Times</li>
+                <li>Dot</li>
+                <li>Proportional</li>
+                <li>Percent</li>
+                <li>Divides</li>
+                <li>Does not divide</li>
+              </ul>
+            </div>
+            <div class="col-sm-3">
+              <h4>Logic</h4>
+              <ul>
+                <li>Not</li>
+                <li>And</li>
+                <li>Or</li>
+                <li>Exclusive or</li>
+                <li>Implication</li>
+                <li>Equivalence</li>
+                <li>Therefore</li>
+                <li>Because</li>
+                <li>For all</li>
+                <li>Exists</li>
+                <li>Does not exist</li>
+                <li>True</li>
+                <li>False</li>
+                <li>Provable</li>
+              </ul>
+            </div>
+            <div class="col-sm-3">
+              <h4>Calculus</h4>
+              <ul>
+                <li>Integral</li>
+                <li>Double integral</li>
+                <li>Tripple integral</li>
+                <li>Closed contour integral</li>
+                <li>Closed surface integral</li>
+                <li>Closed volume integral</li>
+                <li>Limit</li>
+                <li>Infinity</li>
+                <li>Derivative</li>
+                <li>Partial derivative</li>
+                <li>Nabla</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+        <section>
+          <h3 id="the-on-screen-keyboard">The On-Screen Keyboard</h3>
+          <p>If you are using The Mathist on a touch screen device, you will want to use the on-screen keyboard. You can access the keyboard by clicking on the icon in the lower right corner of the note.</p>
+          <div class="text-center margin-v-md" data-pgc="tm.help-image" data-pgc-field="container">
+            <img src="/static-assets/img/help/keyboard.jpg" class="img-responsive shadow img-rounded inline" width="800" data-pgc-field="image">
+          </div>
+        </section>
+        <section>
+          <h3 id="exporting-to-latex">Exporting to LaTeX</h3>
+          <p>The Mathist is extremely convenient for quickly inputing mathematical formulas and writing drafts of your papers. But when you want to take your work to the LaTeX environment for publishing, The Mathist will give you a way to export your formulas. The following gif shows how the LaTeX export works.</p>
+          <div class="margin-v-md" data-pgc="tm.help-image" data-pgc-field="container">
+            <img src="static-assets/img/help/latex.gif" class="img-responsive shadow img-rounded inline" width="450" data-pgc-field="image">
+          </div>
+        </section>
+        <section>
+          <h3 id="working-with-images">Working with Images</h3>
+          <p>The Mathist allows you to upload an image into your note. It is as simple as clicking the image button in the top toolbar. You can also resize the images by hovering your mouse over them and dragging the corners.</p>
+          <div class="margin-v-md" data-pgc="tm.help-image" data-pgc-field="container">
+            <img src="static-assets/img/help/resize.gif" class="img-responsive shadow img-rounded inline" width="450" data-pgc-field="image">
+          </div>
+        </section>
+      </section>
+      <hr>
+      <section>
+        <h2 class="text-center">Cool Stuff</h2>
+        <section>
+          <h3 id="using-wolfram-alpha">Using Wolfram | Alpha</h3>
+          <p>With The Mathist you can easily do computations, find solutions to equations, plot graphs and numberlines, find out about facts and so much more using the Wolfram | Alpha integration. Here is a short gif to show you how it works.</p>
+          <div class="margin-v-md" data-pgc="tm.help-image" data-pgc-field="container">
+            <img src="static-assets/img/help/wolfram-alpha.gif" class="img-responsive shadow img-rounded inline" width="450" data-pgc-field="image">
+          </div>
+          <p>The beauty of Wolfram | Alpha is that you can just ask questions in natural language, and it will understand and provide you with the results. Here are some of the ideas how we use it:</p>
+          <ul>
+            <li>Ask about facts, for example: "What is the speed of light?"</li>
+            <li>Convert different units, like shown in the example above.</li>
+            <li>Select an equation, and have it solved.</li>
+            <li>Select a fraction or a root, hit the lightbulb button, and have the numeric value computed for you.</li>
+            <li>Select a mathematical expression and have it simplified, or get alternative representations.</li>
+            <li>Type something like: "Value of PI" to get information such as: where is it on the number line, what is the decimal approximation, what is the series expansion, etc...</li>
+          </ul>
+        </section>
+        <section>
+          <h3 id="using-desmos-calculator">Using Desmos Calculator</h3>
+          <p>We all know and love Desmos. You can add many desmos calculators inside The Mathist note, to better illustrate your point. Just click the Desmos icon in the top toolbar, and a new desmos calculator will be added right inside your note!</p>
+          <div class="margin-v-md" data-pgc="tm.help-image" data-pgc-field="container">
+            <img src="static-assets/img/help/desmos.gif" class="img-responsive shadow img-rounded inline" width="450" data-pgc-field="image">
+          </div>
+        </section>
+        <section>
+          <h3 id="desmos-calculator">Using Geogebra</h3>
+          <p>Geogebra has a huge library of publicly available interactive materials about many different topics like geometry, algebra, calculus... You can insert a Geogebra material right inside your note. First you click the Geogebra logo in the top toolbar. Then you type in what you are searching for and after the results have loaded you can choose which one you'd like to add to your note. Here is a small giff showing how it works:</p>
+          <div class="margin-v-md" data-pgc="tm.help-image" data-pgc-field="container">
+            <img src="static-assets/img/help/geogebra.gif" class="img-responsive shadow img-rounded inline" width="450" data-pgc-field="image">
+          </div>
+        </section>
+      </section>
+    </div>
+    <div class="page-footer text-white" data-pgc="tm.footer">
+      <div class="container">
+        <p class="text-center">© The Mathist 2016</p>
+      </div>
+    </div>
+    <!-- Scripts -->
+    <script src="/static-assets/js/jquery.min.js"></script>
+    <script src="/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/static-assets/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>

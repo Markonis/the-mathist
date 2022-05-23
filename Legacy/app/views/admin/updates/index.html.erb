@@ -1,0 +1,33 @@
+<h1>Listing updates</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Title</th>
+      <th>Content</th>
+      <th>For</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @updates.each do |update| %>
+      <tr>
+        <td><%= update.user_id %></td>
+        <td><%= update.title %></td>
+        <td><%= update.content %></td>
+        <td><%= update.for_user %></td>
+        <td><%= link_to 'Show', [:admin, update] %></td>
+        <td><%= link_to 'Edit', edit_admin_update_path(update) %></td>
+        <td><%= button_to "delete", [:admin, update], :method=>:delete%></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Update', new_admin_update_path %>
